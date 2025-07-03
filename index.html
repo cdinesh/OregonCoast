@@ -1,1 +1,54 @@
-<!DOCTYPE html><html><head><title>Oregon Coast Final App</title></head><body><h1>Comprehensive Trip Loaded</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oregon Coast & Crater Lake Itinerary</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; }
+    .tabs { display: flex; overflow-x: auto; background-color: #2c3e50; }
+    .tab-button { flex: 1; padding: 12px; color: white; background: #34495e; border: none; cursor: pointer; font-weight: bold; white-space: nowrap; }
+    .tab-button.active { background-color: #1abc9c; }
+    .tab-content { display: none; padding: 20px; background: white; }
+    .tab-content.active { display: block; }
+    .section { margin-bottom: 12px; }
+    .section strong { color: #2c3e50; display: block; margin-bottom: 4px; }
+    p { margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+
+<div class="tabs">
+  <button class="tab-button active" onclick="showTab(event, 'summary')">Trip Summary</button>
+  <button class="tab-button" onclick="showTab(event, 'day1')">Day 1 – Tillamook</button>
+  <button class="tab-button" onclick="showTab(event, 'day2')">Day 2 – Florence</button>
+  <button class="tab-button" onclick="showTab(event, 'day3')">Day 3 – Chemult</button>
+  <button class="tab-button" onclick="showTab(event, 'day4')">Day 4 – Bend</button>
+  <button class="tab-button" onclick="showTab(event, 'day5')">Day 5 – Portland</button>
+  <button class="tab-button" onclick="showTab(event, 'day6')">Day 6 – Departure</button>
+</div>
+
+<div id="summary" class="tab-content active">
+  <h2>Oregon Coast & Crater Lake Adventure Itinerary: July 4–9</h2>
+  <div class="section"><strong>Overview:</strong> Scenic road trip through Oregon’s coast, Crater Lake NP, and Central Oregon. Maximize daylight, avoid night driving, and capture stunning sunsets.</div>
+</div>
+
+<div id="day1" class="tab-content"><h2>Day 1: July 4 – Northern Oregon Coast to Tillamook</h2><p>Astoria Column, Cannon Beach, Neahkahnie Viewpoint, Tillamook Creamery, Cape Meares sunset. Lunch at Mo’s Seafood or Wayfarer Restaurant. Lodging at The Tillamook Inn. Drive: ~95 mi, 2.5 hrs.</p></div>
+<div id="day2" class="tab-content"><h2>Day 2: July 5 – Central Oregon Coast: Tillamook to Florence</h2><p>Three Capes Loop, Cape Kiwanda, Yaquina Head, Devil’s Punchbowl, Cape Perpetua, Thor’s Well. Sunset at Cape Perpetua. Dining: Mo’s or Luna Sea Fish House. Lodging at Driftwood Shores. Drive: ~100 mi, 3.5 hrs.</p></div>
+<div id="day3" class="tab-content"><h2>Day 3: July 6 – Florence to Chemult (Crater Lake NP)</h2><p>Heceta Head Lighthouse, Hobbit Trail, Oregon Dunes, Sea Lion Caves. Afternoon drive to Crater Lake for Rim Drive views. Lodging at Eagle Crater Lake Inn. Drive: ~140 mi, ~3 hrs.</p></div>
+<div id="day4" class="tab-content"><h2>Day 4: July 7 – Crater Lake NP to Bend</h2><p>Morning at Crater Lake, optional Cleetwood Cove hike, visit Newberry Volcanic Monument (Lava Butte, Paulina Peak). Bend brewery tour & dinner. Lodging: Holiday Inn Express. Drive: ~135 mi, 3 hrs.</p></div>
+<div id="day5" class="tab-content"><h2>Day 5: July 8 – Bend to Portland</h2><p>Tumalo Mountain hike, Deschutes River walk, drive via Columbia River Gorge. Multnomah Falls hike, sunset at Crown Point. Lodging at Kimpton RiverPlace. Drive: ~180 mi, 4.25 hrs.</p></div>
+<div id="day6" class="tab-content"><h2>Day 6: July 9 – Portland & Departure</h2><p>Morning in Portland, optional Mt. Hood trip (if time). Return car, depart by 6 PM.</p></div>
+
+<script>
+function showTab(evt, id) {
+  document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
+</script>
+
+</body>
+</html>
