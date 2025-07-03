@@ -1,104 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Oregon Coast Itinerary</title>
   <link rel="manifest" href="manifest.json">
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 10px;
-      background-color: #f9f9f9;
+      margin: 0;
+      background: #f9f9f9;
     }
-    .day {
-      background-color: white;
-      margin-bottom: 20px;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .tabs {
+      display: flex;
+      overflow-x: auto;
+      background-color: #2c3e50;
     }
-    .day h2 {
-      margin-top: 0;
-      color: #2c3e50;
+    .tab-button {
+      flex: 1;
+      padding: 12px;
+      color: white;
+      background: #34495e;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    .tab-button.active {
+      background-color: #1abc9c;
+    }
+    .tab-content {
+      display: none;
+      padding: 20px;
+      background: white;
+    }
+    .tab-content.active {
+      display: block;
     }
     .section {
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
     .section strong {
+      color: #2c3e50;
       display: block;
-      margin-bottom: 5px;
-      color: #34495e;
+      margin-bottom: 6px;
+    }
+    ul {
+      padding-left: 18px;
     }
   </style>
 </head>
 <body>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(registration => {
-          console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch(error => {
-          console.log('Service Worker registration failed:', error);
-        });
-    }
-  </script>
 
-  <div class="day">
-    <h2>July 4 – Tillamook</h2>
-    <div class="section"><strong>Key Stops:</strong> Cannon Beach, Neahkahnie Viewpoint, Tillamook Creamery, Three Capes Scenic Loop</div>
-    <div class="section"><strong>Distance:</strong> 95 miles</div>
-    <div class="section"><strong>Drive Time:</strong> 2 hr 30 min</div>
-    <div class="section"><strong>Dining:</strong> Lunch at Wayfarer Restaurant, Dinner at Pelican Brewing</div>
-    <div class="section"><strong>Sunset:</strong> Cape Kiwanda</div>
-    <div class="section"><strong>Hiking:</strong> Neahkahnie Trail (1.5 hrs)</div>
-    <div class="section"><strong>Hotel:</strong> 2515 Main Ave N, Tillamook, OR 97141<br>📞 503-842-7971 | Conf #: H7H171WDL</div>
-  </div>
+<div class="tabs">
+  <button class="tab-button active" onclick="showTab(event, 'summary')">Trip Summary</button>
+  <button class="tab-button" onclick="showTab(event, 'tillamook')">Tillamook</button>
+  <button class="tab-button" onclick="showTab(event, 'florence')">Florence</button>
+  <button class="tab-button" onclick="showTab(event, 'chemult')">Chemult</button>
+  <button class="tab-button" onclick="showTab(event, 'bend')">Bend</button>
+  <button class="tab-button" onclick="showTab(event, 'portland')">Portland</button>
+</div>
 
-  <div class="day">
-    <h2>July 5 – Florence</h2>
-    <div class="section"><strong>Key Stops:</strong> Cape Kiwanda, Devil's Punchbowl, Yaquina Head Lighthouse, Cape Perpetua, Heceta Head Lighthouse</div>
-    <div class="section"><strong>Distance:</strong> 100 miles</div>
-    <div class="section"><strong>Drive Time:</strong> 3 hr 30 min</div>
-    <div class="section"><strong>Dining:</strong> Lunch at Local Ocean Seafoods, Dinner at Waterfront Depot</div>
-    <div class="section"><strong>Sunset:</strong> Heceta Head Lighthouse</div>
-    <div class="section"><strong>Hiking:</strong> Cape Perpetua trails (1–2 hrs)</div>
-    <div class="section"><strong>Hotel:</strong> 88416 1st Ave, Florence, OR 97439<br>📞 541-997-8263 | Conf #: EXP-2210820413</div>
-  </div>
+<div id="summary" class="tab-content active">
+  <h2>Oregon Coast & Inland Adventure: 5-Day Itinerary</h2>
+  <div class="section"><strong>Overview:</strong> Designed to maximize daylight and scenic routes. Key locations include beaches, viewpoints, lighthouses, waterfalls, and iconic coastal highways.</div>
+  <div class="section"><strong>Sunset ETA Goal:</strong> Arrive at each lodging before ~8:45 PM</div>
+</div>
 
-  <div class="day">
-    <h2>July 6 – Chemult</h2>
-    <div class="section"><strong>Key Stops:</strong> Coquille Point, Port Orford, Samuel H. Boardman Corridor</div>
-    <div class="section"><strong>Distance:</strong> 160 miles</div>
-    <div class="section"><strong>Drive Time:</strong> 4 hr 30 min</div>
-    <div class="section"><strong>Dining:</strong> Lunch at Bandon Fish Market, Snack at Crazy Norwegian's</div>
-    <div class="section"><strong>Sunset:</strong> Secret Beach</div>
-    <div class="section"><strong>Hiking:</strong> Natural Bridges & Secret Beach trail (1.5 hrs)</div>
-    <div class="section"><strong>Hotel:</strong> 108915 U.S. 97, Chemult, OR 97731<br>📞 541-365-2235 | Conf #: 2210823968</div>
+<div id="tillamook" class="tab-content">
+  <h2>Day 1 (July 4) – Tillamook</h2>
+  <div class="section"><strong>Lodging:</strong> The Tillamook Inn, 2515 Main Ave N | Conf #: H7H171WDL</div>
+  <div class="section"><strong>Key Stops & Activities:</strong>
+    <ul>
+      <li><strong>Cannon Beach:</strong> Haystack Rock, ocean views</li>
+      <li><strong>Neahkahnie Viewpoint + Hike:</strong> 1.5 hrs South Trail</li>
+      <li><strong>Tillamook Creamery:</strong> Tour, samples, ice cream</li>
+      <li><strong>Three Capes Scenic Loop:</strong> Cape Meares, Lookouts</li>
+      <li><strong>Cape Kiwanda:</strong> Dory boat landings, climb dunes</li>
+    </ul>
   </div>
+  <div class="section"><strong>Drive:</strong> 95 miles, ~2 hr 30 min</div>
+  <div class="section"><strong>Dining:</strong> Lunch – Wayfarer; Dinner – Pelican Brewing</div>
+  <div class="section"><strong>Sunset:</strong> Cape Kiwanda</div>
+</div>
 
-  <div class="day">
-    <h2>July 7 – Bend</h2>
-    <div class="section"><strong>Key Stops:</strong> Crater Lake NP, Fort Rock (optional)</div>
-    <div class="section"><strong>Distance:</strong> 135 miles</div>
-    <div class="section"><strong>Drive Time:</strong> 3 hr 15 min</div>
-    <div class="section"><strong>Dining:</strong> Brunch at Crater Lake Lodge, Dinner at Deschutes Brewery</div>
-    <div class="section"><strong>Sunset:</strong> Crater Lake Rim Drive</div>
-    <div class="section"><strong>Hiking:</strong> Cleetwood Cove Trail (1.5 hrs)</div>
-    <div class="section"><strong>Hotel:</strong> 61070 S HWY 97, Bend, OR 97701<br>📞 N/A | Conf #: 62279082</div>
+<div id="florence" class="tab-content">
+  <h2>Day 2 (July 5) – Florence</h2>
+  <div class="section"><strong>Lodging:</strong> Driftwood Shores Resort | Conf #: EXP-2210820413</div>
+  <div class="section"><strong>Key Stops & Activities:</strong>
+    <ul>
+      <li><strong>Devil’s Punchbowl:</strong> Tide-dependent access</li>
+      <li><strong>Yaquina Head Lighthouse:</strong> Tide pools at Cobble Beach</li>
+      <li><strong>Cape Perpetua:</strong> Devil’s Churn, Thor’s Well, Spouting Horn</li>
+      <li><strong>Heceta Head Lighthouse:</strong> Short hike + Hobbit Trail</li>
+    </ul>
   </div>
+  <div class="section"><strong>Drive:</strong> 100 miles, ~3 hr 30 min</div>
+  <div class="section"><strong>Dining:</strong> Local Ocean Seafoods; Waterfront Depot</div>
+  <div class="section"><strong>Sunset:</strong> Heceta Head Viewpoint</div>
+</div>
 
-  <div class="day">
-    <h2>July 8 – Portland</h2>
-    <div class="section"><strong>Key Stops:</strong> Mount Hood, Trillium Lake, Multnomah Falls</div>
-    <div class="section"><strong>Distance:</strong> 180 miles</div>
-    <div class="section"><strong>Drive Time:</strong> 4 hr 15 min</div>
-    <div class="section"><strong>Dining:</strong> Lunch at Timberline Lodge, Dinner at Departure</div>
-    <div class="section"><strong>Sunset:</strong> Crown Point Vista</div>
-    <div class="section"><strong>Hiking:</strong> Multnomah Falls Upper Trail (1.5 hrs)</div>
-    <div class="section"><strong>Hotel:</strong> 1510 S Harbor Way, Portland, OR<br>📞 503-228-3233 | Conf #: 29291103</div>
+<div id="chemult" class="tab-content">
+  <h2>Day 3 (July 6) – Chemult</h2>
+  <div class="section"><strong>Lodging:</strong> Eagle Crater Lake Inn | Conf #: 2210823968</div>
+  <div class="section"><strong>Key Stops & Activities:</strong>
+    <ul>
+      <li><strong>Coquille Point:</strong> Scenic stop in Bandon</li>
+      <li><strong>Port Orford:</strong> Fish & Chips stop</li>
+      <li><strong>Samuel H. Boardman Corridor:</strong> 
+        <ul>
+          <li>Natural Bridges Viewpoint</li>
+          <li>Secret Beach (1.5 hr hike)</li>
+        </ul>
+      </li>
+    </ul>
   </div>
+  <div class="section"><strong>Drive:</strong> 160 miles, ~4 hr 30 min</div>
+  <div class="section"><strong>Dining:</strong> Bandon Fish Market; Crazy Norwegian’s</div>
+  <div class="section"><strong>Sunset:</strong> Secret Beach</div>
+</div>
+
+<div id="bend" class="tab-content">
+  <h2>Day 4 (July 7) – Bend</h2>
+  <div class="section"><strong>Lodging:</strong> Holiday Inn Express, Bend | Conf #: 62279082</div>
+  <div class="section"><strong>Key Stops & Activities:</strong>
+    <ul>
+      <li><strong>Crater Lake NP:</strong> Rim Drive, Cleetwood Cove Trail (1.5 hrs)</li>
+      <li><strong>Fort Rock:</strong> Optional geological stop</li>
+    </ul>
+  </div>
+  <div class="section"><strong>Drive:</strong> 135 miles, ~3 hr 15 min</div>
+  <div class="section"><strong>Dining:</strong> Brunch – Crater Lake Lodge; Dinner – Deschutes Brewery</div>
+  <div class="section"><strong>Sunset:</strong> Crater Lake Rim Viewpoint</div>
+</div>
+
+<div id="portland" class="tab-content">
+  <h2>Day 5 (July 8) – Portland</h2>
+  <div class="section"><strong>Lodging:</strong> Kimpton RiverPlace Hotel | Conf #: 29291103</div>
+  <div class="section"><strong>Key Stops & Activities:</strong>
+    <ul>
+      <li><strong>Mt Hood:</strong> Trillium Lake, Timberline Chairlift</li>
+      <li><strong>Multnomah Falls:</strong> Arrive ~4:30 PM, hike upper trail (1.5 hrs)</li>
+      <li><strong>Scenic Drive:</strong> Historic Columbia River Hwy</li>
+    </ul>
+  </div>
+  <div class="section"><strong>Drive:</strong> 180 miles, ~4 hr 15 min</div>
+  <div class="section"><strong>Dining:</strong> Lunch – Timberline Lodge; Dinner – Departure (Portland)</div>
+  <div class="section"><strong>Sunset:</strong> Crown Point Vista</div>
+</div>
+
+<script>
+  function showTab(evt, id) {
+    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    evt.currentTarget.classList.add('active');
+  }
+</script>
 
 </body>
 </html>
