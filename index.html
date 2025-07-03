@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oregon Coast Itinerary</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+    .day {
+      background-color: white;
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .day h2 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+    .section {
+      margin-bottom: 10px;
+    }
+    .section strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #34495e;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+          console.log('Service Worker registration failed:', error);
+        });
+    }
+  </script>
+  <div class="day"><h2>Sample Day</h2><div class="section"><strong>Key Stops:</strong> Example Stop</div></div>
+</body>
+</html>
