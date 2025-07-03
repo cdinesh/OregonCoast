@@ -1,6 +1,6 @@
 {
   "name": "Oregon Coast Itinerary",
-  "short_name": "Coast Trip",
+  "short_name": "CoastTrip",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
